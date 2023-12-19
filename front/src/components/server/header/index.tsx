@@ -32,7 +32,7 @@ const Header = () => {
           <div
             data-tid="header_text"
             className={
-              " w-[300px] mx-auto flex flex-col text-center md:mt-[27px] md:w-[325px] md:self-start md:text-start  lg:mt-[68px] lg:w-[437px] "
+              " mx-auto flex w-[300px] flex-col text-center md:mt-[27px] md:w-[325px] md:self-start md:text-start  lg:mt-[68px] lg:w-[437px] "
             }
           >
             <h1

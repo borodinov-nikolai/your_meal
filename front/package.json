@@ -9,7 +9,7 @@
     "test": "jest",
     "format": "prettier --write src/**/* .prettierrc",
     "lint": "next lint",
-    "storybook": "storybook dev -p 6006",
+    "sb": "storybook dev -p 6006",
     "build-storybook": "storybook build"
   },
   "dependencies": {
