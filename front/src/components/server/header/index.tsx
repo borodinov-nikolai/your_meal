@@ -1,30 +1,65 @@
-import Image from 'next/image'
-import React from 'react'
-import logo from '@/public/icons/logo.svg'
-import img_burger from '@/public/images/g10.png'
-
-
-
+import Image from "next/image";
+import React from "react";
+import logo from "@/public/icons/logo.svg";
+import img_burger from "@/public/images/g10.png";
 
 const Header = () => {
-  return  (
-    <div data-tid='header' className={' bg-cover bg-bottom bg-[url("/images/bg.svg")] pt-[24px] h-[459px] w-full bg-no-repeat'} >
-      <div data-tid='header_container' className={'xl:container mx-auto'} >
-        <div data-tid='header_logo' >
-             <Image className={'h-[29px] w-[150px] p-[0px] mx-auto'} src={logo} height={29} width={150} alt='logo'/>
-             </div>
-             <div data-tid='header_block' className={'mt-6'} >
-                 <div data-tid="header_text" className={'text-center'} >
-                        <h1 className={'text-[30px] leading-[36px] font-extrabold text-white'}  >Только самые <span className={'text-[#FF5C00]'} >сочные бургеры!</span></h1>
-                        <p className={'text-xs text-white'} >Бесплатная доставка от 599₽</p>
-                 </div>
-                 <div data-tid='header_image'>
-                 <Image className={'h-[203px] w-[176px]'} src={img_burger} height={290} width={255} alt='burger'/>
-                 </div>
-             </div>
+  return (
+    <div
+      data-tid="header"
+      className={
+        ' h-[459px] w-full bg-[url("/images/bg.svg")] bg-cover bg-bottom bg-no-repeat pt-[24px] md:h-[349px] lg:h-[466px]'
+      }
+    >
+      <div data-tid="header_container" className={"mx-auto xl:container"}>
+        <div data-tid="header_logo">
+          <Image
+            className={
+              " mx-auto h-[29px] w-[150px] p-[0px] lg:h-[33px] lg:w-[152px]"
+            }
+            src={logo}
+            height={29}
+            width={150}
+            alt="logo"
+          />
+        </div>
+        <div
+          data-tid="header_block"
+          className={
+            "mt-6 flex-row-reverse items-center justify-center md:mx-auto  md:mt-[23px] md:flex md:w-[562px] lg:w-[763px]"
+          }
+        >
+          <div
+            data-tid="header_text"
+            className={
+              " w-[300px] mx-auto flex flex-col text-center md:mt-[27px] md:w-[325px] md:self-start md:text-start  lg:mt-[68px] lg:w-[437px] "
+            }
+          >
+            <h1
+              className={
+                "text-[30px] font-extrabold leading-[36px] text-white md:text-[36px] lg:text-[50px] lg:leading-[60px]"
+              }
+            >
+              Только самые{" "}
+              <span className={"text-[#FF5C00]"}>сочные бургеры!</span>
+            </h1>
+            <p className={"mt-4 text-xs text-white lg:mt-[52px] lg:text-base"}>
+              Бесплатная доставка от 599₽
+            </p>
+          </div>
+          <div data-tid="header_image" className={"mx-auto w-max md:mx-0"}>
+            <Image
+              className={"h-[229px] w-[227px] lg:h-[326px] lg:w-[326px]"}
+              src={img_burger}
+              height={400}
+              width={400}
+              alt="burger"
+            />
+          </div>
+        </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Header
+export default Header;
