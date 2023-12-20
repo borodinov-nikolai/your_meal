@@ -10,23 +10,20 @@ const meta: Meta<typeof Category_btn> = {
   },
 
   argTypes: {
-    size: { 
-      name: 'Size',
+    size: {
+      name: "Size",
       control: "radio",
-       options: ["small", "normal"],
-      defaultValue: {summary:"normal"},
-      description: 'Change size:'
-    
-  },
-  
+      options: ["small", "normal"],
+      defaultValue: { summary: "normal" },
+      description: "Change size:",
+    },
   },
 
   args: {
-    size:'normal',
+    size: "normal",
     active: false,
-    children: 'button'
-    },
-  
+    children: "button",
+  },
 };
 
 export default meta;
