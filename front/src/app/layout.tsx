@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Nunito } from "next/font/google";
 import "@/src/styles/globals.scss";
 import Header from "../components/server/header";
+import Categories from "../components/client/categories";
 
 const nunito = Nunito({ subsets: ["latin"] });
 
@@ -19,6 +20,9 @@ export default function RootLayout({
     <html lang="en">
       <body id="__next" className={nunito.className}>
         <Header />
+        <div data-tid="categories" className="mt-[30px] lg:mt-10">
+          <Categories />
+        </div>
         {children}
       </body>
     </html>

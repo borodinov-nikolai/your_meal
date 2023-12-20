@@ -1,11 +1,5 @@
-import Category from "@/src/components/client/category";
+import Categories from "@/src/components/client/categories";
 
 export default function Home() {
-  return (
-    <main className="">
-      <div className={" xl:container xl:mx-auto"}>
-        <Category />
-      </div>
-    </main>
-  );
+  return <main className=""></main>;
 }

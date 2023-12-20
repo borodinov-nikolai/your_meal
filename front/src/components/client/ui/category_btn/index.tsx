@@ -7,7 +7,7 @@ interface Props {
   children?: React.ReactNode;
   size?: "small" | "normal";
   active?: boolean;
-  onClick: () => void;
+  onClick?: () => void;
 }
 
 const Category_btn: React.FC<Props> = ({
@@ -17,12 +17,14 @@ const Category_btn: React.FC<Props> = ({
   active = false,
   ...props
 }) => {
-  const args = ["rounded-[50px] border border-transparent flex items-center justify-center gap-2"];
+  const args = [
+    "rounded-[50px] w-auto border border-transparent flex items-center justify-center gap-2 select-none",
+  ];
 
   if (size === "normal") {
-    args.push("text-base w-[121px] h-[40px]");
+    args.push(" px-[14px] text-base h-[40px]");
   } else {
-    args.push("w-[97px] h-[30px] text-xs");
+    args.push(" px-2 h-[30px] text-xs");
   }
 
   if (active) {
