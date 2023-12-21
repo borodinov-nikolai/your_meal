@@ -16,14 +16,14 @@ const Button: FC<Props> = ({
   children,
   ...props
 }) => {
+
+  
   const args = [
-    `rounded-xl hover:bg-[#FFAB08] flex justify-center items-center w-[${
-      width + "px"
-    }]`,
+    `rounded-xl hover:bg-[#FFAB08] flex justify-center items-center`,
   ];
 
   if (size === "normal") {
-    args.push("h-10 leading-4");
+    args.push(`h-10 leading-4`);
   } else {
     args.push("h-[30px] text-xs leading-3");
   }
@@ -35,7 +35,7 @@ const Button: FC<Props> = ({
   }
 
   return (
-    <button className={args.join(" ")} {...props}>
+    <button style={{width: width+"px"}} className={args.join(" ")} {...props}>
       {children}
     </button>
   );
