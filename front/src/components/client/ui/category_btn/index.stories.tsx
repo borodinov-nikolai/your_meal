@@ -28,8 +28,6 @@ const meta: Meta<typeof Category_btn> = {
 export default meta;
 type Story = StoryObj<typeof Category_btn>;
 
-
-
 export const Active: Story = {
   args: {
     active: true,

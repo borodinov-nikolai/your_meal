@@ -14,7 +14,7 @@ const Header = () => {
       <div data-tid="container" className={"container"}>
         <div data-tid="header_logo">
           <Image
-          priority
+            priority
             className={
               " mx-auto h-[29px] w-[150px] p-[0px] lg:h-[33px] lg:w-[152px]"
             }
@@ -50,7 +50,7 @@ const Header = () => {
           </div>
           <div data-tid="header_image" className={"mx-auto w-max md:mx-0"}>
             <Image
-            priority
+              priority
               className={"h-[229px] w-[227px] lg:h-[326px] lg:w-[326px]"}
               src={img_burger}
               height={400}

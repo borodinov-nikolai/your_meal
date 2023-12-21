@@ -17,8 +17,6 @@ import "swiper/css/pagination";
 const Categories = () => {
   const pathname = usePathname();
 
-
-
   return (
     <div
       data-tid="categories"
@@ -38,7 +36,11 @@ const Categories = () => {
       >
         {categories.map(({ id, icon, name, href }) => {
           return (
-            <SwiperSlide data-tid='slider' key={id} className={"mr-2  !w-max md:mr-3 lg:mr-6"}>
+            <SwiperSlide
+              data-tid="slider"
+              key={id}
+              className={"mr-2  !w-max md:mr-3 lg:mr-6"}
+            >
               <Link href={href}>
                 <Category_btn
                   active={

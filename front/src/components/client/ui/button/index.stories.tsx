@@ -9,17 +9,15 @@ const meta: Meta<typeof Category_btn> = {
     layout: "centered",
   },
 
-
-
-argTypes: {
+  argTypes: {
     color: {
-        name:'Color',
-        control: 'radio',
-        options: ['orange', 'gray'],
-        defaultValue: {summary: 'orange'},
-        description: 'Change color'
-    }
-},
+      name: "Color",
+      control: "radio",
+      options: ["orange", "gray"],
+      defaultValue: { summary: "orange" },
+      description: "Change color",
+    },
+  },
 
   // argTypes: {
   //   size: {
@@ -33,7 +31,7 @@ argTypes: {
 
   args: {
     width: 268,
-    color: 'orange',
+    color: "orange",
     children: "button",
   },
 };
@@ -41,16 +39,12 @@ argTypes: {
 export default meta;
 type Story = StoryObj<typeof Category_btn>;
 
-
-
 export const Orange: Story = {
-    args: {
-          
-    }
-}
+  args: {},
+};
 
 export const Gray: Story = {
-    args: {
-          color:'gray'
-    }
-}
+  args: {
+    color: "gray",
+  },
+};

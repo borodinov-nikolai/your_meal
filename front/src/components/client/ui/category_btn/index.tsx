@@ -19,18 +19,17 @@ const Category_btn: React.FC<Props> = ({
     "rounded-[50px] px-2 h-[30px] text-xs lg:px-[14px] lg:text-base lg:h-[40px] hover:border-[#F86310] w-auto border border-transparent flex items-center justify-center gap-2 select-none",
   ];
 
-
   if (active) {
     args.push(" bg-[#FFAB08] hover:border-transparent");
   } else {
-    args.push('bg-white')
+    args.push("bg-white");
   }
 
   return (
-    <button data-tid='category_button' className={args.join(" ")} {...props}>
+    <button data-tid="category_button" className={args.join(" ")} {...props}>
       {icon && (
         <Image
-        priority
+          priority
           className={"h-6 w-6"}
           src={icon}
           width={24}
