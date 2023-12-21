@@ -3,6 +3,7 @@ import { Nunito } from "next/font/google";
 import "@/src/styles/globals.scss";
 import Header from "../components/server/header";
 import Categories from "../components/client/categories";
+import Footer from "../components/server/footer";
 
 const nunito = Nunito({ subsets: ["latin"] });
 
@@ -24,6 +25,7 @@ export default function RootLayout({
           <Categories />
         </div>
         {children}
+        <Footer/>
       </body>
     </html>
   );

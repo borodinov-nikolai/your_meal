@@ -22,7 +22,7 @@ const Categories = () => {
   return (
     <div
       data-tid="categories"
-      className="px-[10px] xl:container md:pl-16 md:pr-0 lg:pl-8 xl:mx-auto xl:pl-0"
+      className="px-[10px] xl:container md:pl-16 md:pr-0 lg:pl-8 xl:pl-0"
     >
       <Swiper
         slidesPerView={"auto"}

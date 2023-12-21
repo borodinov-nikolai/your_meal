@@ -6,7 +6,6 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "test": "jest",
     "format": "prettier --write src/**/* .prettierrc",
     "lint": "next lint",
     "sb": "storybook dev -p 6006",

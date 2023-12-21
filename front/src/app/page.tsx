@@ -16,7 +16,7 @@ while(quantity) {
     <main >
       <div
         data-tid="container"
-        className={"mx-auto xl:px-0 pb-[80px] md:px-[64px] lg:px-[32px] px-[10px] pt-[30px] lg:pt-[50px] xl:container"}
+        className={" pb-[80px]  pt-[30px] lg:pt-[50px] container "}
       >
         <div data-tid="flex_wrapper" className={"flex flex-col lg:flex-row lg:gap-[30px]"}>
           <div data-tid="cart_holder" className={'mt-[72px]'}>

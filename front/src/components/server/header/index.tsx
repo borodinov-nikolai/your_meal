@@ -1,6 +1,6 @@
 import Image from "next/image";
 import React from "react";
-import logo from "@/public/icons/logo.svg";
+import logo from "@/public/icons/logo.png";
 import img_burger from "@/public/images/g10.png";
 
 const Header = () => {
@@ -11,7 +11,7 @@ const Header = () => {
         ' h-[459px] w-full bg-[url("/images/bg.svg")] bg-cover bg-bottom bg-no-repeat pt-[24px] md:h-[349px] lg:h-[466px]'
       }
     >
-      <div data-tid="container" className={"mx-auto xl:container"}>
+      <div data-tid="container" className={"container"}>
         <div data-tid="header_logo">
           <Image
           priority
