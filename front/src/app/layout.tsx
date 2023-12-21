@@ -20,7 +20,7 @@ export default function RootLayout({
     <html lang="en">
       <body id="__next" className={nunito.className + " bg-[#F9F9F9]"}>
         <Header />
-        <div data-tid="categories" className="mt-[30px] lg:mt-10">
+        <div data-tid="categories_holder" className="mt-[30px] lg:mt-10">
           <Categories />
         </div>
         {children}

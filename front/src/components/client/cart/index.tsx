@@ -11,13 +11,13 @@ const Cart = () => {
   return (
     <div
       data-tid="cart"
-      className={" relative h-[48px]  w-full rounded-xl bg-white px-[10px]"}
+      className={" relative h-[48px] w-full sm:w-[145px] lg:w-[300px] rounded-xl bg-white px-[10px]"}
     >
       {!showContent && (
         <div
         data-tid="close_cart"
         onClick={() => setShowContent(true)}
-          className={"flex w-full items-center justify-between pt-4"}
+          className={"flex w-full items-center justify-between h-full cursor-pointer"}
         >
           <div data-tid="title" className={" font-semibold leading-4"}>
             Корзина
@@ -35,7 +35,7 @@ const Cart = () => {
         <div
           data-tid="open_cart "
           className={
-            " absolute left-0 z-10 h-[389px] w-full rounded-xl bg-white px-[10px] shadow-[0_0_10px_0_rgba(0,0,0,0.15)]"
+            " absolute w-full sm:w-[300px] left-0 z-10 h-[389px] rounded-xl bg-white px-[10px] shadow-[0_0_10px_0_rgba(0,0,0,0.15)]"
           }
         >
           <div>
@@ -72,7 +72,7 @@ const Cart = () => {
               data-id="buy_button"
               className={"mt-[19px] flex justify-center"}
             >
-              <Button width={280} size={"small"}>
+              <Button width={280} >
                 Оформить заказ
               </Button>
             </div>

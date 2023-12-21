@@ -3,11 +3,23 @@ import type { Meta, StoryObj } from "@storybook/react";
 import Category_btn from "./";
 
 const meta: Meta<typeof Category_btn> = {
-  title: "Category_button",
+  title: "Button",
   component: Category_btn,
   parameters: {
     layout: "centered",
   },
+
+
+
+argTypes: {
+    color: {
+        name:'Color',
+        control: 'radio',
+        options: ['orange', 'gray'],
+        defaultValue: {summary: 'orange'},
+        description: 'Change color'
+    }
+},
 
   // argTypes: {
   //   size: {
@@ -20,7 +32,8 @@ const meta: Meta<typeof Category_btn> = {
   // },
 
   args: {
-    active: false,
+    width: 268,
+    color: 'orange',
     children: "button",
   },
 };
@@ -30,13 +43,14 @@ type Story = StoryObj<typeof Category_btn>;
 
 
 
-export const Active: Story = {
-  args: {
-    active: true,
-  },
-};
-export const Not_Active: Story = {
-  args: {
-    active: false,
-  },
-};
+export const Orange: Story = {
+    args: {
+          
+    }
+}
+
+export const Gray: Story = {
+    args: {
+          color:'gray'
+    }
+}

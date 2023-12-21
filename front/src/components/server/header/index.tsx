@@ -11,9 +11,10 @@ const Header = () => {
         ' h-[459px] w-full bg-[url("/images/bg.svg")] bg-cover bg-bottom bg-no-repeat pt-[24px] md:h-[349px] lg:h-[466px]'
       }
     >
-      <div data-tid="header_container" className={"mx-auto xl:container"}>
+      <div data-tid="container" className={"mx-auto xl:container"}>
         <div data-tid="header_logo">
           <Image
+          priority
             className={
               " mx-auto h-[29px] w-[150px] p-[0px] lg:h-[33px] lg:w-[152px]"
             }
@@ -49,6 +50,7 @@ const Header = () => {
           </div>
           <div data-tid="header_image" className={"mx-auto w-max md:mx-0"}>
             <Image
+            priority
               className={"h-[229px] w-[227px] lg:h-[326px] lg:w-[326px]"}
               src={img_burger}
               height={400}
