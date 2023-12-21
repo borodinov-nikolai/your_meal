@@ -18,7 +18,7 @@ const Category_btn: React.FC<Props> = ({
   ...props
 }) => {
   const args = [
-    "rounded-[50px] w-auto border border-transparent flex items-center justify-center gap-2 select-none",
+    "rounded-[50px] bg-white w-auto border border-transparent flex items-center justify-center gap-2 select-none",
   ];
 
   if (size === "normal") {

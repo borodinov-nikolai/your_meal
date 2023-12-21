@@ -18,7 +18,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body id="__next" className={nunito.className}>
+      <body id="__next" className={nunito.className + " bg-[#F9F9F9]"}>
         <Header />
         <div data-tid="categories" className="mt-[30px] lg:mt-10">
           <Categories />
