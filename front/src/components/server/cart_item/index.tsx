@@ -1,6 +1,7 @@
 import React from "react";
 import img_product from "@/public/images/burger_meat_bomb.jpg";
 import Image from "next/image";
+import Counter from "../../client/ui/counter";
 
 const Cart_item = () => {
   return (
@@ -25,14 +26,10 @@ const Cart_item = () => {
       </div>
 
       <div
-        data-tid="counter"
-        className={" flex h-[30px] w-[74px]  rounded-lg bg-[#F2F2F3] "}
+        data-tid="counter_holder"
+       
       >
-        <button className={" basis-1/3 text-xs"}>-</button>
-        <div className={"flex basis-1/3 items-center justify-center text-xs "}>
-          0
-        </div>
-        <button className={"basis-1/3 text-xs"}>+</button>
+       <Counter/>
       </div>
     </div>
   );

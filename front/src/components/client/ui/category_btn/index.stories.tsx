@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
-import Category_btn from "./";
+import Category_btn from ".";
 
 const meta: Meta<typeof Category_btn> = {
   title: "Category_button",

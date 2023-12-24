@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from "react";
-import Cart_item from "../cart_item";
+import Cart_item from "../../server/cart_item";
 import Button from "../ui/button";
 import icon_delivery from "@/public/icons/free-icon-delivery-2362252.png";
 import Image from "next/image";

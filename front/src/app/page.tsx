@@ -1,15 +1,21 @@
 import Cart from "../components/client/cart";
-import Product_card from "../components/client/product_card";
+import Product_card from "../components/server/product_card";
+import Modal_window from "../components/client/ui/modal_window";
+import Product_description from "../components/server/product_description";
 
 export default function Home() {
   const cards = [];
   let quantity = 6;
 
   while (quantity) {
-    cards.push(<Product_card />);
+    cards.push( <Modal_window content={<Product_description/>} > <Product_card /></Modal_window>);
     quantity--;
   }
 
+
+  
+
+  console.log(cards)
   return (
     <main>
       <div

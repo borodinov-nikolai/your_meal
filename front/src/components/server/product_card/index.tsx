@@ -1,8 +1,8 @@
-"use client";
 import React, { FC } from "react";
 import img_product from "@/public/images/burger_meat_bomb.jpg";
 import Image, { StaticImageData } from "next/image";
-import Button from "../ui/button";
+import Buy_button from "../../client/buy_button";
+
 
 interface Props {
   image?: StaticImageData;
@@ -11,9 +11,10 @@ interface Props {
   weight?: number;
 }
 
+
 const Product_card: FC<Props> = ({ image }) => {
   return (
-    <div data-tid="product_card" className={"h-max w-full bg-white p-1 lg:p-3"}>
+    <div data-tid="product_card" className={"h-max w-full bg-white p-1 lg:p-3 cursor-pointer "}>
       <Image
         data-tid="image"
         className={"h-auto w-full"}
@@ -47,12 +48,13 @@ const Product_card: FC<Props> = ({ image }) => {
         520г
       </p>
 
-      <div data-tid="button" className="mt-[7px] flex justify-center lg:mt-2">
-        <Button color={"gray"} width={"full"}>
-          Добавить
-        </Button>
+      <div   data-tid="button" className="mt-[7px] flex justify-center lg:mt-2">
+
+       <Buy_button color='gray' width='full'>Добавить</Buy_button>
+       
       </div>
     </div>
+  
   );
 };
 
