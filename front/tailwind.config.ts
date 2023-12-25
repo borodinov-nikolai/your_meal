@@ -17,7 +17,7 @@ const config: Config = {
         DEFAULT: '10px',  
         md: '64px',
         lg: '32px',
-        xl: '0',          
+        xl: '20px',       
        
       },
      

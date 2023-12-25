@@ -1,35 +1,34 @@
 import React, { FC } from "react";
-import img_product from "@/public/images/burger_meat_bomb.jpg";
-import Image, { StaticImageData } from "next/image";
+import Image from "next/image";
 import Buy_button from "../../client/buy_button";
 
 
 interface Props {
-  image?: StaticImageData;
+  image?: string;
   price?: number;
   name?: string;
   weight?: number;
 }
 
 
-const Product_card: FC<Props> = ({ image }) => {
+const Product_card: FC<Props> = ({ image, price, name, weight }) => {
   return (
     <div data-tid="product_card" className={"h-max w-full bg-white p-1 lg:p-3 cursor-pointer "}>
-      <Image
+      {image && <Image
         data-tid="image"
         className={"h-auto w-full"}
-        src={img_product}
+        src={process.env.CMS_URL + image}
         width={276}
         height={220}
         alt="product_image"
-      />
+      />}
       <p
         data-tid="price"
         className={
           "mt-[10px] font-semibold leading-none lg:mt-[16px] lg:text-2xl lg:leading-none"
         }
       >
-        500₽
+        {price}₽
       </p>
       <p
         data-tid="name"
@@ -37,7 +36,7 @@ const Product_card: FC<Props> = ({ image }) => {
           "mt-2 text-xs leading-[15.6px] lg:text-base  lg:leading-[20px]"
         }
       >
-        Мясная бомба
+        {name}
       </p>
       <p
         data-tid="weight"
@@ -45,7 +44,7 @@ const Product_card: FC<Props> = ({ image }) => {
           "mt-4 text-xs leading-[15.6px] text-[#B1B1B1] lg:mt-[29px] lg:text-base lg:leading-[20px]"
         }
       >
-        520г
+        {weight}г
       </p>
 
       <div   data-tid="button" className="mt-[7px] flex justify-center lg:mt-2">

@@ -1,0 +1,45 @@
+{
+  "kind": "collectionType",
+  "collectionName": "burgers",
+  "info": {
+    "singularName": "burger",
+    "pluralName": "burgers",
+    "displayName": "burger",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "price": {
+      "type": "integer"
+    },
+    "weight": {
+      "type": "integer"
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "description": {
+      "type": "string"
+    },
+    "composition": {
+      "type": "component",
+      "repeatable": true,
+      "component": "product.product-composition"
+    },
+    "energy_value": {
+      "type": "integer"
+    }
+  }
+}

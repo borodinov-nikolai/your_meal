@@ -1,16 +1,29 @@
+import { get_products } from "@/src/api/cms_api";
 import Cart from "@/src/components/client/cart";
+import Modal_window from "@/src/components/client/ui/modal_window";
 import Product_card from "@/src/components/server/product_card";
+import Product_description from "@/src/components/server/product_description";
+import { Product } from "@/src/interfaces/products";
 
 
-export default function Pge() {
-  const cards = [];
+
+
+const Page = async ({params}:{params:{slug:string}}) => {
+  console.log(params.slug)
+  const products = await get_products(params.slug)
+  const cards :any = [];
   let quantity = 6;
+  
 
+  console.log(products)
   while (quantity) {
-    cards.push(<Product_card />);
+    cards.push(products?.data[0]);  
     quantity--;
   }
 
+  
+  
+  console.log(cards)
   return (
     <main>
       <div
@@ -39,7 +52,19 @@ export default function Pge() {
                 " mt-4 grid grid-cols-2 justify-items-center gap-[10px] sm:grid-cols-3 md:grid-cols-4 md:gap-5 lg:mt-6 lg:grid-cols-2 lg:gap-[30px]  xl:grid-cols-3"
               }
             >
-              {cards}
+              {cards.map((item : Product)=> {
+                const {name, weight, image, price, description, composition} = item.attributes
+                const img = image.data.attributes.url
+                console.log(img)
+                return (<div key={item.id} >
+                  < Modal_window  content={<Product_description name={name} price={price} weight={weight}
+                  description={description} composition={composition}
+                  />}>
+                  <  Product_card image={img} price={price} name={name} weight={weight} />
+                  </Modal_window>
+                  </div>) 
+              })}
+              
             </div>
           </div>
         </div>
@@ -47,3 +72,5 @@ export default function Pge() {
     </main>
   );
 }
+
+export default Page

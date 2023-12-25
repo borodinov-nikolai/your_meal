@@ -1,0 +1,12 @@
+{
+  "collectionName": "components_product_product_compositions",
+  "info": {
+    "displayName": "product_composition"
+  },
+  "options": {},
+  "attributes": {
+    "item": {
+      "type": "string"
+    }
+  }
+}
