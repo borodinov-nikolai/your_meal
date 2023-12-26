@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import Category_btn from "../ui/category_btn";
+import Category_btn from "../ui/category";
 import categories from "@/src/constants/categories";
 import { Keyboard, Scrollbar, Navigation, Pagination } from "swiper/modules";
 import { usePathname } from "next/navigation";

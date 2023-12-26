@@ -1,5 +1,5 @@
 'use client'
-import React, { Children, FC, useState } from 'react'
+import React, {FC} from 'react'
 import Button from '../ui/button'
 
 interface Props {

@@ -9,21 +9,13 @@ import { Product } from "@/src/interfaces/products";
 
 
 const Page = async ({params}:{params:{slug:string}}) => {
-  console.log(params.slug)
+  
   const products = await get_products(params.slug)
-  const cards :any = [];
-  let quantity = 6;
-  
-
-  console.log(products)
-  while (quantity) {
-    cards.push(products?.data[0]);  
-    quantity--;
-  }
 
   
+
+
   
-  console.log(cards)
   return (
     <main>
       <div
@@ -52,13 +44,13 @@ const Page = async ({params}:{params:{slug:string}}) => {
                 " mt-4 grid grid-cols-2 justify-items-center gap-[10px] sm:grid-cols-3 md:grid-cols-4 md:gap-5 lg:mt-6 lg:grid-cols-2 lg:gap-[30px]  xl:grid-cols-3"
               }
             >
-              {cards.map((item : Product)=> {
-                const {name, weight, image, price, description, composition} = item.attributes
+              {products?.data?.map((item : Product)=> {
+                const {name, weight, image, price, description, composition, energy_value} = item.attributes
                 const img = image.data.attributes.url
                 console.log(img)
                 return (<div key={item.id} >
                   < Modal_window  content={<Product_description name={name} price={price} weight={weight}
-                  description={description} composition={composition}
+                  description={description} energy_value={energy_value} composition={composition}
                   />}>
                   <  Product_card image={img} price={price} name={name} weight={weight} />
                   </Modal_window>

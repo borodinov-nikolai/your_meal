@@ -2,6 +2,7 @@ import Image from "next/image";
 import React from "react";
 import logo from "@/public/icons/logo.png";
 import img_burger from "@/public/images/g10.png";
+import Link from "next/link";
 
 const Header = () => {
   return (
@@ -13,16 +14,18 @@ const Header = () => {
     >
       <div data-tid="container" className={"container"}>
         <div data-tid="header_logo">
-          <Image
-            priority
-            className={
-              " mx-auto h-[29px] w-[150px] p-[0px] lg:h-[33px] lg:w-[152px]"
-            }
-            src={logo}
-            height={29}
-            width={150}
-            alt="logo"
-          />
+          <Link href={'/'}>
+            <Image
+              priority
+              className={
+                " mx-auto h-[29px] w-[150px] p-[0px] lg:h-[33px] lg:w-[152px]"
+              }
+              src={logo}
+              height={29}
+              width={150}
+              alt="logo"
+            />
+          </Link>
         </div>
         <div
           data-tid="header_block"

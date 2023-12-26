@@ -10,7 +10,7 @@ export const cms_api = axios.create({
 
 export const get_products = async (name:string)=> {
     try {
-        const {data}: {data:Products} = await cms_api.get(`/${name}?populate=*`)
+        const {data}: {data:Products} = await cms_api.get(`/products?filters[category][name][$eq]=${name}&sort=createdAt:asc&populate=*`)
 
           
         return data
