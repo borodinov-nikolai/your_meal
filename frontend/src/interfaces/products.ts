@@ -18,9 +18,21 @@ export interface Products {
     publishedAt: string
     energy_value: number
     image: Image
+    category: Category
     composition: Composition[]
   }
   
+  export interface Category {
+    data: {
+      id: number
+      attributes: {
+        name: string
+        title: string
+      }
+    }
+    meta: Meta
+  }
+
   export interface Image {
     data: Data
   }

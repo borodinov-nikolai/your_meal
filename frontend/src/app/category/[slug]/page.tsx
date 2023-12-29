@@ -8,14 +8,15 @@ import { Product } from "@/src/interfaces/products";
 
 
 
-const Page = async ({params}:{params:{slug:string}}) => {
-  
+const Page = async ({ params }: { params: { slug: string } }) => {
+
   const products = await get_products(params.slug)
 
-  
+  const title = products?.data[0]?.attributes.category.data.attributes.title
 
 
-  
+
+
   return (
     <main>
       <div
@@ -36,7 +37,7 @@ const Page = async ({params}:{params:{slug:string}}) => {
                 "text-[28px] font-semibold lg:text-[40px] lg:leading-[48px]"
               }
             >
-              Бургеры
+              {title}
             </h1>
             <div
               data-tid="grid_wrapper"
@@ -44,19 +45,19 @@ const Page = async ({params}:{params:{slug:string}}) => {
                 " mt-4 grid grid-cols-2 justify-items-center gap-[10px] sm:grid-cols-3 md:grid-cols-4 md:gap-5 lg:mt-6 lg:grid-cols-2 lg:gap-[30px]  xl:grid-cols-3"
               }
             >
-              {products?.data?.map((item : Product)=> {
-                const {name, weight, image, price, description, composition, energy_value} = item.attributes
+              {products?.data?.map((item: Product) => {
+                const { name, weight, image, price, description, composition, energy_value } = item.attributes
                 const img = image.data.attributes.url
                 console.log(img)
                 return (<div key={item.id} >
-                  < Modal_window  content={<Product_description name={name} price={price} weight={weight}
-                  description={description} energy_value={energy_value} composition={composition}
+                  < Modal_window content={<Product_description name={name} price={price} weight={weight}
+                    description={description} energy_value={energy_value} composition={composition}
                   />}>
-                  <  Product_card image={img} price={price} name={name} weight={weight} />
+                    <  Product_card image={img} price={price} name={name} weight={weight} />
                   </Modal_window>
-                  </div>) 
+                </div>)
               })}
-              
+
             </div>
           </div>
         </div>

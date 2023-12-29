@@ -11,7 +11,7 @@ export default async function Home() {
   
     const products = await get_products('burgers')
   
-
+const title = products?.data[0].attributes.category.data.attributes.title
   
 
 
@@ -35,7 +35,7 @@ export default async function Home() {
               "text-[28px] font-semibold lg:text-[40px] lg:leading-[48px]"
             }
           >
-            Бургеры
+            {title}
           </h1>
           <div
             data-tid="grid_wrapper"
