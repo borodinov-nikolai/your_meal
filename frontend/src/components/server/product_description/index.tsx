@@ -1,6 +1,5 @@
 import Image from 'next/image'
 import React, { FC } from 'react'
-import image_product from '@/public/images/burger_meat_bomb.jpg'
 import Buy_button from '../../client/buy_button'
 import Counter from '../../client/ui/counter'
 

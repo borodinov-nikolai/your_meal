@@ -48,9 +48,8 @@ const Page = async ({ params }: { params: { slug: string } }) => {
               {products?.data?.map((item: Product) => {
                 const { name, weight, image, price, description, composition, energy_value } = item.attributes
                 const img = image.data.attributes.url
-                console.log(img)
                 return (<div key={item.id} >
-                  < Modal_window content={<Product_description name={name} price={price} weight={weight}
+                  < Modal_window content={<Product_description image={img} name={name} price={price} weight={weight}
                     description={description} energy_value={energy_value} composition={composition}
                   />}>
                     <  Product_card image={img} price={price} name={name} weight={weight} />
