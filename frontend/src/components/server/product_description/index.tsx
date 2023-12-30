@@ -6,6 +6,7 @@ import Counter from '../../client/ui/counter'
 
 interface Props {
   name?:string,
+  image?:string,
   description?: string,
   price?: number,
   weight?: number,
@@ -13,17 +14,17 @@ interface Props {
   composition?: {id: number, item: string}[]
 }
 
-const Product_description : FC<Props> = ({name, description, price, weight, energy_value, composition}) => {
+const Product_description : FC<Props> = ({name, description, price, weight, energy_value, image, composition}) => {
+const image_url = process.env.CMS_URL
 
-
-
+  
 
 
     return (
         <div data-tid='product_description' className={'w-screen lg:pt-6 lg:w-[684px] lg:h-[432px] sm:w-[524px] lg:px-6 sm:rounded-3xl sm:h-[324px] h-screen px-[10px] sm:px-4 pt-[32px] sm:pt-4 bg-white'} >
           <h1 data-tid='product_description__title' className={' text-[28px] lg:text-[40px] lg:leading-[48px] font-semibold leading-[34px]'}>{name}</h1>
           <div data-tid='product_description__description' className={'flex flex-col lg:mt-6 sm:flex-row mt-3 sm:gap-2 lg:gap-4 '} >
-          <Image data-tid='product_description__description-image' className={'w-300 h-232 lg:w-[276px] lg:h-[220px] sm:w-[226px] sm:h-[180px] self-center '} src={image_product} width={300} height={232} alt='product image'/>
+          {image && <Image data-tid='product_description__description-image' className={'w-300 h-232 lg:w-[276px] lg:h-[220px] sm:w-[226px] sm:h-[180px] self-center '} src={image_url + image} width={300} height={232} alt='product image'/>}
             <div data-tid='product_descroption__description-text' className={' mt-4 sm:mt-0 '} > 
               <p className={'text-xs leading-[15.6px] lg:text-base lg:leading-[20.8px]'} >{description}</p>
             
