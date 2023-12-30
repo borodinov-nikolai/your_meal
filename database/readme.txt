@@ -4,11 +4,11 @@
 
 создание образа: "docker run -d --name postgres -e POSTGRES_PASSWORD=1234 -e POSTGRES_DB=your_meal -e POSTGRES_ENCODING=UTF-8 -p 5555:5432 postgres:16.1-alpine3.19"
 создать dump: docker exec -it container_id bin/ch
-pg_dump --username=your_username --encoding=UTF8 your_database > dump.sql
+pg_dump -U postgres --encoding=UTF8 your_meal > dump.sql
 docker cp your_postgres_container:/path/inside/container/dump.sql C:\path\on\local\machine
 
 восстановить: docker cp C:/path/on/local/machine/dump.sql your_postgres_container:/path/inside/container/dump.sql
-psql --username=your_username --dbname=your_database < /path/inside/container/dump.sql
+psql -U postgres -d your_meal < /root/dump.sql
 
 
 
