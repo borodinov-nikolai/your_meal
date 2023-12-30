@@ -21,7 +21,7 @@ const Page = async ({ params }: { params: { slug: string } }) => {
     <main>
       <div
         data-tid="container"
-        className={" container  pb-[80px] pt-[30px] lg:pt-[50px] "}
+        className={" container  pb-[80px] pt-[30px] lg:pt-[50px] min-h-screen "}
       >
         <div
           data-tid="flex_wrapper"

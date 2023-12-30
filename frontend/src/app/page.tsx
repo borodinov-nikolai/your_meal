@@ -19,7 +19,7 @@ const title = products?.data[0].attributes.category.data.attributes.title
     <main>
     <div
       data-tid="container"
-      className={" container  pb-[80px] pt-[30px] lg:pt-[50px] "}
+      className={" container  pb-[80px] pt-[30px] lg:pt-[50px] min-h-screen "}
     >
       <div
         data-tid="flex_wrapper"
