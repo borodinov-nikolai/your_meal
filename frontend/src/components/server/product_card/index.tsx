@@ -4,14 +4,19 @@ import Buy_button from "../../client/buy_button";
 
 
 interface Props {
-  image?: string;
-  price?: number;
-  name?: string;
-  weight?: number;
+  product: {
+    id?: number;
+    image?: string;
+    price?: number;
+    name?: string;
+    weight?: number;
+  }
+ 
 }
 
 
-const Product_card: FC<Props> = ({ image, price, name, weight }) => {
+const Product_card: FC<Props> = ({ product}) => {
+  const {id, image, price, name, weight} = product
   return (
     <div data-tid="product_card" className={"h-max w-full bg-white p-1 lg:p-3 cursor-pointer "}>
       {image && <Image
@@ -49,7 +54,7 @@ const Product_card: FC<Props> = ({ image, price, name, weight }) => {
 
       <div   data-tid="button" className="mt-[7px] flex justify-center lg:mt-2">
 
-       <Buy_button color='gray' width='full'>Добавить</Buy_button>
+       <Buy_button product={product} color='gray' width='full'>Добавить</Buy_button>
        
       </div>
     </div>

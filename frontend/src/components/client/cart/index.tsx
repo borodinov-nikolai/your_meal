@@ -4,9 +4,12 @@ import Cart_item from "../../server/cart_item";
 import Button from "../ui/button";
 import icon_delivery from "@/public/icons/free-icon-delivery-2362252.png";
 import Image from "next/image";
+import { useAppSelector } from "@/src/store/hooks";
 
 const Cart = () => {
+  const {products, total_quantity} = useAppSelector((state)=> state.cart)
   const [showContent, setShowContent] = useState<boolean>(false);
+console.log(products, total_quantity)
 
   return (
     <div

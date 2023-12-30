@@ -2,21 +2,30 @@ import Image from 'next/image'
 import React, { FC } from 'react'
 import Buy_button from '../../client/buy_button'
 import Counter from '../../client/ui/counter'
+import { Composition } from '@/src/interfaces/products'
 
 interface Props {
-  name?:string,
-  image?:string,
-  description?: string,
-  price?: number,
-  weight?: number,
-  energy_value?: number,
-  composition?: {id: number, item: string}[]
+  product: {
+    id?:number
+    name?:string,
+    image?:string,
+    description?: string,
+    price?: number,
+    weight?: number,
+    energy_value?: number,
+    composition?: Composition[] 
+  }
+  
 }
 
-const Product_description : FC<Props> = ({name, description, price, weight, energy_value, image, composition}) => {
-const image_url = process.env.CMS_URL
+const Product_description : FC<Props> = ({product}) => {
+
+    const {id, image, name, price, weight, description, energy_value, composition} = product
 
   
+  const image_url = process.env.CMS_URL
+
+  // console.log(image)
 
 
     return (
@@ -30,7 +39,7 @@ const image_url = process.env.CMS_URL
               <h3 className={'text-[10px] lg:text-xs lg:leading-[15.6px] leading-[14px] font-semibold mt-[10px]'} >Состав:</h3>
             <ul className={' text-[10px] lg:text-xs lg:leading-[15.6px] leading-[12.8px] mt-1 flex flex-col gap-[2px]'} >
                 {composition?.map(({id, item})=> {
-                  return <li key={id} >{item}</li>
+                  return <li key={id}>{item}</li>
                 })}
             </ul>
             <p className={'mt-1 lg:text-xs lg:leading-[15.6px] text-[10px] leading-[14px] text-[#B1B1B1]'} >{weight}г, ккал {energy_value}</p>
@@ -39,7 +48,7 @@ const image_url = process.env.CMS_URL
           <div data-tid='product_description__footer' className={'mt-[98px] lg:mt-10 sm:mt-6 flex flex-col sm:flex-row sm:justify-between '} >
             <div data-tid='product_description__buttons' className={'flex justify-between sm:justify-start sm:gap-2 lg:gap-4'} >
               <div data-tid='product_description__buy_button' className={'w-[218px] lg:w-[276px]'} >
-                <Buy_button width={'full'} color={'orange'}>Добавить</Buy_button>
+                <Buy_button product={{id, name, price, weight, image}} width={'full'} color={'orange'}>Добавить</Buy_button>
               </div>
               <Counter/>
             </div>
