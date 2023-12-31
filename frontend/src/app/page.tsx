@@ -1,7 +1,7 @@
 import Cart from "../components/client/cart";
-import Product_card from "../components/server/product_card";
+import Product_card from "../components/client/product_card";
 import Modal_window from "../components/client/ui/modal_window";
-import Product_description from "../components/server/product_description";
+import Product_description from "../components/client/product_description";
 import { get_products } from "../api/cms_api";
 import { Product } from "../interfaces/products";
 
@@ -47,10 +47,9 @@ const title = products?.data[0].attributes.category.data.attributes.title
               const {id, attributes} = item
               const {name, weight, price, description, composition, energy_value} = attributes
               const image = item.attributes.image.data.attributes.url
-              console.log(image)
               return (<div className={'w-full'} key={item.id} >
-                < Modal_window  content={<Product_description product={{id, image, name, price, weight, description, energy_value, composition}} />}>
-                <  Product_card product={{id, image, price, name, weight}} />
+                < Modal_window content={<Product_description product={{id, image, name, price, weight, description, energy_value, composition}} />}>
+                < Product_card product={{id, image, price, name, weight}} />
                 </Modal_window>
                 </div>) 
             })}

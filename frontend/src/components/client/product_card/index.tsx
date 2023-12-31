@@ -1,6 +1,10 @@
+'use client'
 import React, { FC } from "react";
 import Image from "next/image";
-import Buy_button from "../../client/buy_button";
+import Button from "../ui/button";
+import { useAppDispatch } from "@/src/store/hooks";
+import { addToCart } from "@/src/store/slices/cartSlice";
+
 
 
 interface Props {
@@ -15,14 +19,15 @@ interface Props {
 }
 
 
-const Product_card: FC<Props> = ({ product}) => {
-  const {id, image, price, name, weight} = product
+const Product_card: FC<Props> = ({product}) => {
+  const dispatch = useAppDispatch()
+  const {image, price, name, weight} = product
   return (
     <div data-tid="product_card" className={"h-max w-full bg-white p-1 lg:p-3 cursor-pointer "}>
       {image && <Image
         data-tid="image"
         className={"h-auto w-full"}
-        src={process.env.CMS_URL + image}
+        src={process.env.NEXT_PUBLIC_CMS_URL + image}
         width={276}
         height={220}
         alt="product_image"
@@ -54,7 +59,7 @@ const Product_card: FC<Props> = ({ product}) => {
 
       <div   data-tid="button" className="mt-[7px] flex justify-center lg:mt-2">
 
-       <Buy_button product={product} color='gray' width='full'>Добавить</Buy_button>
+       <Button onClick={(e)=>{e.stopPropagation(); dispatch(addToCart(product))}} color='gray' width='full'>Добавить</Button>
        
       </div>
     </div>

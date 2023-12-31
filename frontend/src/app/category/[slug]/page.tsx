@@ -1,8 +1,8 @@
 import { get_products } from "@/src/api/cms_api";
 import Cart from "@/src/components/client/cart";
 import Modal_window from "@/src/components/client/ui/modal_window";
-import Product_card from "@/src/components/server/product_card";
-import Product_description from "@/src/components/server/product_description";
+import Product_card from "@/src/components/client/product_card";
+import Product_description from "@/src/components/client/product_description";
 import { Product } from "@/src/interfaces/products";
 
 

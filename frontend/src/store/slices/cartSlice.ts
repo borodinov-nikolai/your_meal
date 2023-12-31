@@ -10,18 +10,18 @@ interface Product {
         price?: number;
         name?: string;
         weight?: number;
-        quantity?: number;
+        count?: number;
 }
 
 
 export interface CartState {
-    total_quantity: number,
+    total_count: number,
     products: Product[],
 }
 
 
 export const initialState: CartState = {
-    total_quantity: 0,
+    total_count: 0,
      products: []
 }
 
@@ -30,21 +30,22 @@ export const cartSlice = createSlice({
     name: 'cart',
     initialState,
     reducers: {
-       add_to_cart: (state, action: PayloadAction<Product>)=> {
+       addToCart: (state, action: PayloadAction<Product>)=> {
             const arr = state.products 
         
-            const item = arr.find((item)=>action.payload.id === item.id)
-            if(!item){
-                arr.push({...action.payload, quantity:1})
-            } else {
-                item.quantity && ++item.quantity 
+            const cart_item = arr.find((item)=>action.payload.id === item.id)
+            const product_quantity = action.payload.count
+            if(!cart_item){
+                arr.push({...action.payload})
+            } else if(product_quantity && cart_item?.count) {
+               product_quantity > 1 ? cart_item.count + product_quantity :  ++cart_item.count
             }
-            ++state.total_quantity 
+            ++state.total_count
        }
     }
 })
 
 
 
-export const {add_to_cart} = cartSlice.actions
+export const {addToCart} = cartSlice.actions
 export default cartSlice.reducer
