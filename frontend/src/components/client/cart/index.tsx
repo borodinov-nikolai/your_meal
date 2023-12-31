@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Cart_item from "../cart_item";
 import Button from "../ui/button";
 import icon_delivery from "@/public/icons/free-icon-delivery-2362252.png";
@@ -7,9 +7,14 @@ import Image from "next/image";
 import { useAppSelector } from "@/src/store/hooks";
 
 const Cart = () => {
-  const {cart_items, total_count} = useAppSelector((state)=> state.cart)
+  const { cart_items, total_count, total_price } = useAppSelector(
+    (state) => state.cart,
+  );
   const [showContent, setShowContent] = useState<boolean>(false);
-console.log(cart_items, total_count)
+
+  useEffect(() => {
+    total_count < 1 && setShowContent(false);
+  }, [total_count]);
 
   return (
     <div
@@ -21,10 +26,10 @@ console.log(cart_items, total_count)
       {!showContent && (
         <div
           data-tid="close_cart"
-          onClick={() => setShowContent(true)}
-          className={
-            "flex h-full w-full cursor-pointer items-center justify-between"
-          }
+          onClick={() => cart_items.length > 0 && setShowContent(true)}
+          className={`flex h-full w-full ${
+            cart_items.length > 0 && "cursor-pointer"
+          } items-center justify-between`}
         >
           <div data-tid="title" className={" font-semibold leading-4"}>
             Корзина
@@ -61,12 +66,19 @@ console.log(cart_items, total_count)
               </div>
             </div>
 
-            <div data-tid="cart_item_holder"    className={'max-h-[225px] overflow-y-scroll'}>
-              {cart_items && cart_items.map(({id, name, price, weight, image, count})=> {
-                return  <Cart_item item={{id, image, name, price, weight, count}} />
-              })}
-             
-             
+            <div
+              data-tid="cart_item_holder"
+              className={"max-h-[225px] overflow-y-scroll"}
+            >
+              {cart_items &&
+                cart_items.map(({ id, name, price, weight, image, count }) => {
+                  return (
+                    <Cart_item
+                      key={id}
+                      item={{ id, image, name, price, weight, count }}
+                    />
+                  );
+                })}
             </div>
 
             <div
@@ -74,7 +86,7 @@ console.log(cart_items, total_count)
               className={"flex justify-between border-t pt-[12px]"}
             >
               <div className={"text-xs leading-4"}>Итого</div>
-              <div className={"text-xs leading-4"}>1279₽</div>
+              <div className={"text-xs leading-4"}>{total_price}₽</div>
             </div>
 
             <div

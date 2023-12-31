@@ -14,7 +14,7 @@ const Header = () => {
     >
       <div data-tid="container" className={"container"}>
         <div data-tid="header_logo">
-          <Link href={'/'}>
+          <Link href={"/"}>
             <Image
               priority
               className={

@@ -1,11 +1,9 @@
-'use client'
+"use client";
 import React, { FC } from "react";
 import Image from "next/image";
 import Button from "../ui/button";
 import { useAppDispatch } from "@/src/store/hooks";
-import { addToCart } from "@/src/store/slices/cartSlice";
-
-
+import { addCartItem } from "@/src/store/slices/cartSlice";
 
 interface Props {
   product: {
@@ -14,24 +12,27 @@ interface Props {
     price?: number;
     name?: string;
     weight?: number;
-  }
- 
+  };
 }
 
-
-const Product_card: FC<Props> = ({product}) => {
-  const dispatch = useAppDispatch()
-  const {image, price, name, weight} = product
+const Product_card: FC<Props> = ({ product }) => {
+  const dispatch = useAppDispatch();
+  const { image, price, name, weight } = product;
   return (
-    <div data-tid="product_card" className={"h-max w-full bg-white p-1 lg:p-3 cursor-pointer "}>
-      {image && <Image
-        data-tid="image"
-        className={"h-auto w-full"}
-        src={process.env.NEXT_PUBLIC_CMS_URL + image}
-        width={276}
-        height={220}
-        alt="product_image"
-      />}
+    <div
+      data-tid="product_card"
+      className={"h-max w-full cursor-pointer bg-white p-1 lg:p-3 "}
+    >
+      {image && (
+        <Image
+          data-tid="image"
+          className={"h-auto w-full"}
+          src={process.env.NEXT_PUBLIC_CMS_URL + image}
+          width={276}
+          height={220}
+          alt="product_image"
+        />
+      )}
       <p
         data-tid="price"
         className={
@@ -57,13 +58,19 @@ const Product_card: FC<Props> = ({product}) => {
         {weight}г
       </p>
 
-      <div   data-tid="button" className="mt-[7px] flex justify-center lg:mt-2">
-
-       <Button onClick={(e)=>{e.stopPropagation(); dispatch(addToCart({...product, count:1}))}} color='gray' width='full'>Добавить</Button>
-       
+      <div data-tid="button" className="mt-[7px] flex justify-center lg:mt-2">
+        <Button
+          onClick={(e) => {
+            e.stopPropagation();
+            dispatch(addCartItem({ ...product, count: 1 }));
+          }}
+          color="gray"
+          width="full"
+        >
+          Добавить
+        </Button>
       </div>
     </div>
-  
   );
 };
 

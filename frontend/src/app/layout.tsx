@@ -21,14 +21,14 @@ export default function RootLayout({
   return (
     <html lang="en">
       <Store_provider>
-      <body id="__next" className={nunito.className + " bg-[#F9F9F9]"}>
-        <Header />
-        <div data-tid="categories_holder" className="mt-[30px] lg:mt-10">
-          <Categories />
-        </div>
-        {children}
-        <Footer />
-      </body>
+        <body id="__next" className={nunito.className + " bg-[#F9F9F9]"}>
+          <Header />
+          <div data-tid="categories_holder" className="mt-[30px] lg:mt-10">
+            <Categories />
+          </div>
+          {children}
+          <Footer />
+        </body>
       </Store_provider>
     </html>
   );

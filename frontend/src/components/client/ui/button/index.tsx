@@ -5,7 +5,9 @@ interface Props {
   width?: number | "full";
   color?: "orange" | "gray";
   children?: React.ReactNode;
-  onClick?: (() => void )| ((event: React.MouseEvent<HTMLButtonElement>) => void );
+  onClick?:
+    | (() => void)
+    | ((event: React.MouseEvent<HTMLButtonElement>) => void);
 }
 
 const Button: FC<Props> = ({
@@ -28,7 +30,7 @@ const Button: FC<Props> = ({
     <button
       style={width === "full" ? { width: "100%" } : { width: width + "px" }}
       className={args.join(" ")}
-     {...props}
+      {...props}
     >
       {children}
     </button>
