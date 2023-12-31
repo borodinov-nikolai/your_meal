@@ -23,7 +23,7 @@ interface Props {
 
 const Product_description : FC<Props> = ({product}) => {
   const dispatch = useAppDispatch()
-  const [quantity, setQuantity] = useState<number>(0)
+  const [count, setCount] = useState<number>(0)
     const {id, image, name, price, weight, description, energy_value, composition} = product
 
   
@@ -52,9 +52,9 @@ const Product_description : FC<Props> = ({product}) => {
           <div data-tid='product_description__footer' className={'mt-[98px] lg:mt-10 sm:mt-6 flex flex-col sm:flex-row sm:justify-between '} >
             <div data-tid='product_description__buttons' className={'flex justify-between sm:justify-start sm:gap-2 lg:gap-4'} >
               <div data-tid='product_description__buy_button' className={'w-[218px] lg:w-[276px]'} >
-              <Button onClick={()=>dispatch(addToCart({id, image, name, price, weight, }))} >Добавить</Button>
+              <Button onClick={()=>dispatch(addToCart({id, image, name, price, weight, count:(count > 0 ? count : 1)}))} >Добавить</Button>
               </div>
-              <Counter minusClick={()=> count>0 && setQuantity(count-1)} plusClick={()=> count<99 && setQuantity(count+1)} count={count} />
+              <Counter minusClick={()=> count>0 && setCount(count-1)} plusClick={()=> count<99 && setCount(count+1)} count={count} />
             </div>
             <div data-tid="product_description__price" className={' sm:place-self-center mt-4 lg:text-2xl lg:leading-[31.2px] sm:mt-0 place-self-end leading-[20px] font-semibold'} >{price}₽</div>
           </div>

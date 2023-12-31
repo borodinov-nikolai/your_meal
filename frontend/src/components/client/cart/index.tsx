@@ -7,9 +7,9 @@ import Image from "next/image";
 import { useAppSelector } from "@/src/store/hooks";
 
 const Cart = () => {
-  const {products, total_quantity} = useAppSelector((state)=> state.cart)
+  const {cart_items, total_count} = useAppSelector((state)=> state.cart)
   const [showContent, setShowContent] = useState<boolean>(false);
-console.log(products, total_quantity)
+console.log(cart_items, total_count)
 
   return (
     <div
@@ -33,7 +33,7 @@ console.log(products, total_quantity)
             data-tid="counter"
             className="flex h-4 w-8 items-center justify-center rounded-lg bg-[#F2F2F3] text-[10px]"
           >
-            0
+            {total_count}
           </div>
         </div>
       )}
@@ -57,14 +57,16 @@ console.log(products, total_quantity)
                 data-tid="counter"
                 className="flex h-4 w-8 items-center justify-center rounded-lg bg-[#F2F2F3] text-[10px]"
               >
-                0
+                {total_count}
               </div>
             </div>
 
-            <div data-tid="cart_item_holder">
-              <Cart_item />
-              <Cart_item />
-              <Cart_item />
+            <div data-tid="cart_item_holder"    className={'max-h-[225px] overflow-y-scroll'}>
+              {cart_items && cart_items.map(({id, name, price, weight, image, count})=> {
+                return  <Cart_item item={{id, image, name, price, weight, count}} />
+              })}
+             
+             
             </div>
 
             <div

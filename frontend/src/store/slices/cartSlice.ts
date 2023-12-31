@@ -4,25 +4,25 @@ import type { PayloadAction } from '@reduxjs/toolkit'
 
 
 
-interface Product {
+interface Cart_item {
         id?: number
         image?: string;
         price?: number;
         name?: string;
         weight?: number;
-        count?: number;
+        count: number;
 }
 
 
 export interface CartState {
     total_count: number,
-    products: Product[],
+    cart_items: Cart_item[],
 }
 
 
 export const initialState: CartState = {
     total_count: 0,
-     products: []
+     cart_items: []
 }
 
 
@@ -30,17 +30,16 @@ export const cartSlice = createSlice({
     name: 'cart',
     initialState,
     reducers: {
-       addToCart: (state, action: PayloadAction<Product>)=> {
-            const arr = state.products 
-        
-            const cart_item = arr.find((item)=>action.payload.id === item.id)
-            const product_quantity = action.payload.count
+       addToCart: (state, action: PayloadAction<Cart_item>)=> {
+            const cart_item = state.cart_items.find((item)=>action.payload.id === item.id)
+
             if(!cart_item){
-                arr.push({...action.payload})
-            } else if(product_quantity && cart_item?.count) {
-               product_quantity > 1 ? cart_item.count + product_quantity :  ++cart_item.count
-            }
-            ++state.total_count
+                state.cart_items.push({...action.payload})
+                state.total_count += action.payload.count
+            } else {
+                cart_item.count += action.payload.count
+                state.total_count += action.payload.count
+                }
        }
     }
 })

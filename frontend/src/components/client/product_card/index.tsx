@@ -59,7 +59,7 @@ const Product_card: FC<Props> = ({product}) => {
 
       <div   data-tid="button" className="mt-[7px] flex justify-center lg:mt-2">
 
-       <Button onClick={(e)=>{e.stopPropagation(); dispatch(addToCart(product))}} color='gray' width='full'>Добавить</Button>
+       <Button onClick={(e)=>{e.stopPropagation(); dispatch(addToCart({...product, count:1}))}} color='gray' width='full'>Добавить</Button>
        
       </div>
     </div>
